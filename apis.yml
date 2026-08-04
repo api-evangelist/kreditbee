@@ -1,17 +1,39 @@
 aid: kreditbee
 name: KreditBee
-description: 'KreditBee is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'KreditBee is a Bengaluru, India digital lending platform founded in 2017
+  by Madhusudan Ekambaram, Vivek Veda and Karthikeyan Krishnaswamy, operated by Finnovation
+  Tech Solutions Private Limited (CIN U74900KA2016PTC086953) and lending through its
+  in-house RBI-registered NBFC KrazyBee Services Limited alongside partner banks and
+  NBFCs. Its consumer products are instant personal loans from Rs 6,000 to Rs 10 lakh,
+  business loans up to Rs 1 crore, two-wheeler loans up to Rs 5 lakh, loan against property,
+  a flexi personal loan line, 24K digital gold, and free credit score reports, delivered
+  through an Android and iOS app and a single-page web application that the company
+  says serves over 7 crore registered Indian users. KreditBee publishes no public developer
+  portal, no API documentation, no API reference, no SDKs and no machine-readable API
+  description of any kind. Its only API host, api.kreditbee.in, is an AWS API Gateway
+  behind Cloudflare that answers HTTP 403 ForbiddenException to every anonymous request
+  and exists to serve the company''s own mobile and web clients. Partner and lending-partner
+  integrations are transacted through the /partner-with-us and /digital-lending-partners
+  business pages rather than through any self-serve technical surface.'
+image: https://kb-serve-img.gumlet.io/krazybee/kreditbee_in/favicon_trhujWFuC.png
 url: https://raw.githubusercontent.com/api-evangelist/kreditbee/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-04'
 modified: '2026-08-04'
 tags:
 - Company
+- Financial Services
+- Fintech
+- Lending
+- Digital Lending
+- Personal Loans
+- Consumer Credit
+- NBFC
+- Credit Score
+- India
+- Mobile
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -20,4 +42,59 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
+  url: https://www.kreditbee.in/
+- type: Blog
+  url: https://www.kreditbee.in/blog
+- type: Support
+  url: https://www.kreditbee.in/contact-us
+- type: HelpCenter
+  url: https://www.kreditbee.in/faq
+- type: Login
+  url: https://www.kreditbee.in/signin
+- type: TermsOfService
+  url: https://www.kreditbee.in/terms-and-conditions
+- type: PrivacyPolicy
+  url: https://www.kreditbee.in/privacy-policy
+- type: GitHubOrganization
+  url: https://github.com/krazybee
+- type: Careers
+  url: https://www.kreditbee.in/careers
+- type: AboutUs
+  url: https://www.kreditbee.in/about-us
+- type: CorporateInformation
+  url: https://www.kreditbee.in/corporate-info
+- type: SecurityCenter
+  url: https://www.kreditbee.in/security-center
+- type: GrievanceRedressal
+  url: https://www.kreditbee.in/grievance-redressal
+- type: ResponsibleLending
+  url: https://www.kreditbee.in/responsible-lending
+- type: Partners
+  url: https://www.kreditbee.in/partner-with-us
+- type: LendingPartners
+  url: https://www.kreditbee.in/digital-lending-partners
+- type: News
+  url: https://www.kreditbee.in/news-board
+- type: Sitemap
+  url: https://www.kreditbee.in/sitemap.xml
+- type: NBFC
+  url: https://www.krazybee.com/
+- type: AppStore
+  url: https://apps.apple.com/in/app/kreditbee-personal-loans-upi/id1488736283
+- type: GooglePlay
+  url: https://play.google.com/store/apps/details?id=com.kreditbee.android
+- type: SecondaryMarket
   url: https://www.hiive.com/securities/kreditbee-stock
+- type: LLMsTxt
+  url: llms/kreditbee-llms.txt
+- type: Conformance
+  url: conformance/kreditbee-conformance.yml
+- type: DomainSecurity
+  url: security/kreditbee-domain-security.yml
+- type: x-evidence
+  url: well-known/kreditbee-well-known.yml
+x-enrichment:
+  date: '2026-08-04'
+  status: enriched
+  artifacts_added: 4
+  pass: local-v1

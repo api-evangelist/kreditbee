@@ -1,0 +1,123 @@
+generated: '2026-08-04'
+method: probed
+source: live HTTP probes of every reachable KreditBee host
+summary: >-
+  KreditBee publishes no /.well-known document of any kind. Every KreditBee web host is
+  a client-rendered single-page application whose origin answers HTTP 200 with the same
+  HTML shell for every unmatched path — including /.well-known/security.txt,
+  /.well-known/agent-card.json, /.well-known/agent.json, /.well-known/openid-configuration,
+  /.well-known/oauth-authorization-server, /.well-known/api-catalog, /.well-known/ai-plugin.json,
+  /llms.txt, /openapi.json and /swagger.json. Those 200s are catch-all false positives,
+  not published documents: the body is text/html, byte-identical to the shell returned for
+  a deliberately nonexistent control path (/nonexistent-page-xyz123, 9,646 bytes), and none
+  parses as JSON or as RFC 9116 text. They are recorded below with valid: false so a later
+  round does not re-discover them as hits. The only real, non-shell documents served on any
+  KreditBee host are /robots.txt and /sitemap.xml on www.kreditbee.in. api.kreditbee.in is
+  an AWS API Gateway behind Cloudflare that answers 403 ForbiddenException to every
+  anonymous request, including every /.well-known/* path.
+hosts:
+- host: https://www.kreditbee.in
+  role: consumer website (single-page app)
+  documents:
+  - {path: /robots.txt, status: 200, content_type: text/plain, valid: true, note: 'real document; declares Sitemap and 23 Disallow rules covering internal subdomains'}
+  - {path: /sitemap.xml, status: 200, content_type: application/xml, valid: true, note: '741 URLs; no developer, API, documentation or changelog page among them'}
+  - {path: /.well-known/security.txt, status: 200, content_type: text/html, valid: false, note: SPA catch-all shell — rejected}
+  - {path: /.well-known/agent-card.json, status: 200, content_type: text/html, valid: false, note: SPA catch-all shell — rejected}
+  - {path: /.well-known/agent.json, status: 200, content_type: text/html, valid: false, note: SPA catch-all shell — rejected}
+  - {path: /.well-known/openid-configuration, status: 200, content_type: text/html, valid: false, note: SPA catch-all shell — rejected}
+  - {path: /.well-known/oauth-authorization-server, status: 200, content_type: text/html, valid: false, note: SPA catch-all shell — rejected}
+  - {path: /.well-known/api-catalog, status: 200, content_type: text/html, valid: false, note: SPA catch-all shell — rejected}
+  - {path: /.well-known/ai-plugin.json, status: 200, content_type: text/html, valid: false, note: SPA catch-all shell — rejected}
+  - {path: /llms.txt, status: 200, content_type: text/html, valid: false, note: SPA catch-all shell — rejected}
+  - {path: /openapi.json, status: 200, content_type: text/html, valid: false, note: SPA catch-all shell — rejected}
+  - {path: /swagger.json, status: 200, content_type: text/html, valid: false, note: SPA catch-all shell — rejected}
+  - {path: /api-docs, status: 200, content_type: text/html, valid: false, note: SPA catch-all shell — rejected}
+- host: https://kreditbee.in
+  role: apex (serves the same SPA)
+  documents:
+  - {path: /.well-known/security.txt, status: 200, content_type: text/html, valid: false, note: SPA catch-all shell — rejected}
+  - {path: /.well-known/agent-card.json, status: 200, content_type: text/html, valid: false, note: SPA catch-all shell — rejected}
+  - {path: /.well-known/agent.json, status: 200, content_type: text/html, valid: false, note: SPA catch-all shell — rejected}
+  - {path: /.well-known/openid-configuration, status: 200, content_type: text/html, valid: false, note: SPA catch-all shell — rejected}
+  - {path: /llms.txt, status: 200, content_type: text/html, valid: false, note: SPA catch-all shell — rejected}
+  - {path: /openapi.json, status: 200, content_type: text/html, valid: false, note: SPA catch-all shell — rejected}
+- host: https://api.kreditbee.in
+  role: private mobile/web backend (AWS API Gateway behind Cloudflare)
+  documents:
+  - {path: /, status: 403, content_type: application/json, valid: false, note: '{"message":"Forbidden"} with x-amzn-errortype ForbiddenException'}
+  - {path: /.well-known/security.txt, status: 403, valid: false}
+  - {path: /.well-known/agent-card.json, status: 403, valid: false}
+  - {path: /.well-known/agent.json, status: 403, valid: false}
+  - {path: /.well-known/openid-configuration, status: 403, valid: false}
+  - {path: /.well-known/oauth-authorization-server, status: 403, valid: false}
+  - {path: /.well-known/api-catalog, status: 403, valid: false}
+  - {path: /.well-known/ai-plugin.json, status: 403, valid: false}
+  - {path: /llms.txt, status: 403, valid: false}
+  - {path: /openapi.json, status: 403, valid: false}
+  - {path: /swagger.json, status: 403, valid: false}
+  - {path: /v2/api-docs, status: 404, valid: false}
+  - {path: /robots.txt, status: 403, valid: false}
+- host: https://dsa.kreditbee.in
+  role: DSA (direct selling agent) admin console
+  documents:
+  - {path: /openapi.json, status: 200, content_type: text/html, valid: false, note: 'SPA catch-all shell (<title>Admin</title>) — rejected'}
+  - {path: /.well-known/agent-card.json, status: 200, content_type: text/html, valid: false, note: SPA catch-all shell — rejected}
+  - {path: /swagger.json, status: 200, content_type: text/html, valid: false, note: SPA catch-all shell — rejected}
+- host: https://www.krazybee.com
+  role: KrazyBee Services Limited (RBI-registered NBFC) website
+  documents:
+  - {path: /robots.txt, status: 200, content_type: text/html, valid: false, note: SPA catch-all shell — rejected}
+  - {path: /.well-known/openid-configuration, status: 200, content_type: text/html, valid: false, note: SPA catch-all shell — rejected}
+- host: https://partner.kreditbee.in
+  role: partner console
+  documents:
+  - {path: /, status: 403, valid: false, note: Cloudflare block on anonymous requests}
+  - {path: /.well-known/openid-configuration, status: 403, valid: false}
+- host: https://fkb.kreditbee.in
+  role: internal app (named in robots.txt)
+  documents:
+  - {path: /, status: 403, valid: false, note: Cloudflare block on anonymous requests}
+security_txt: null
+openid_configuration: null
+agent_card: null
+api_catalog: null
+llms_txt: null
+hosts_with_no_dns:
+- auth.kreditbee.in
+- accounts.kreditbee.in
+- id.kreditbee.in
+- login.kreditbee.in
+- sso.kreditbee.in
+- identity.kreditbee.in
+- gateway.kreditbee.in
+- partners.kreditbee.in
+- developer.kreditbee.in
+- docs.kreditbee.in
+- help.kreditbee.in
+- ops.kreditbee.in
+- status.kreditbee.in
+x-evidence:
+  fetched: '2026-08-04'
+  control_probe:
+    url: https://www.kreditbee.in/nonexistent-page-xyz123
+    http_status: 200
+    content_type: text/html
+    bytes: 9646
+    note: >-
+      Deliberately nonexistent path. Every /.well-known/*, /llms.txt, /openapi.json and
+      /swagger.json probe on this host returned a body of the same size and content type,
+      which is what proves those 200s are a catch-all rather than published documents.
+  probed_hosts:
+  - www.kreditbee.in
+  - kreditbee.in
+  - api.kreditbee.in
+  - dsa.kreditbee.in
+  - partner.kreditbee.in
+  - fkb.kreditbee.in
+  - mix.kreditbee.in
+  - bi.kreditbee.in
+  - collection.kreditbee.in
+  - blog.kreditbee.in
+  - www.krazybee.com
+  - krazybee.com
+  - api.krazybee.com

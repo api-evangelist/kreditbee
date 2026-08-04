@@ -1,0 +1,80 @@
+# KreditBee
+
+> KreditBee is a Bengaluru, India digital lending platform operated by Finnovation Tech Solutions
+> Private Limited (CIN U74900KA2016PTC086953), lending through its in-house RBI-registered NBFC
+> KrazyBee Services Limited and through partner banks and NBFCs. It offers instant personal loans
+> (Rs 6,000 to Rs 10 lakh), business loans (up to Rs 1 crore), two-wheeler loans, loan against
+> property, a flexi personal loan line, 24K digital gold and free credit score reports, delivered
+> through Android and iOS apps and a single-page web application.
+
+**There is no public KreditBee API.** As of 2026-08-04 KreditBee publishes no developer portal,
+no API documentation, no API reference, no SDKs, no client libraries in any public package
+registry, no Postman collection, no MCP server, no A2A agent card, no `/llms.txt`, no
+`/.well-known/` document of any kind, and no OpenAPI, AsyncAPI or GraphQL description. Its only
+API host, `api.kreditbee.in`, is an AWS API Gateway behind Cloudflare that answers
+`403 ForbiddenException` to every anonymous request and serves the company's own mobile and web
+clients. Partner and lending-partner relationships are transacted through business pages, not
+through a self-serve technical surface.
+
+Note for agents: every KreditBee web host is a client-rendered single-page application whose
+origin returns HTTP 200 with the same HTML shell for any unmatched path. A 200 on
+`/openapi.json`, `/llms.txt` or `/.well-known/agent-card.json` on a `kreditbee.in` host is a
+catch-all, not a published document — check the content type before trusting it.
+
+## Company
+
+- [KreditBee](https://www.kreditbee.in/): Company website and consumer loan application.
+- [About Us](https://www.kreditbee.in/about-us): Company background.
+- [Corporate Information](https://www.kreditbee.in/corporate-info): Legal entity and corporate disclosures.
+- [KrazyBee Services Limited](https://www.krazybee.com/): The in-house RBI-registered NBFC.
+- [News Board](https://www.kreditbee.in/news-board): Company news.
+- [Careers](https://www.kreditbee.in/careers): Open roles.
+- [Blog](https://www.kreditbee.in/blog): Personal finance and lending articles.
+
+## Products
+
+- [Personal Loan](https://www.kreditbee.in/personal-loan): Rs 6,000 to Rs 10 lakh.
+- [Business Loan](https://www.kreditbee.in/business-loan): Up to Rs 1 crore.
+- [Two Wheeler Loan](https://www.kreditbee.in/two-wheeler-loan): Up to Rs 5 lakh.
+- [Loan Against Property](https://www.kreditbee.in/property-loan): Up to Rs 1 crore.
+- [Credit Score Report](https://www.kreditbee.in/credit-score-report): Free credit score reports.
+
+## Partnerships
+
+- [Partner With Us](https://www.kreditbee.in/partner-with-us): Business partnership intake.
+- [Digital Lending Partners](https://www.kreditbee.in/digital-lending-partners): Lending partner listing.
+- [Digital Lead Partners](https://www.kreditbee.in/digital-lead-partners): Lead partner listing.
+
+## Support and legal
+
+- [Contact Us](https://www.kreditbee.in/contact-us): Support contacts.
+- [FAQ](https://www.kreditbee.in/faq): Frequently asked questions.
+- [Grievance Redressal](https://www.kreditbee.in/grievance-redressal): RBI-mandated grievance process.
+- [Security Centre](https://www.kreditbee.in/security-center): Fraud awareness and FACE code of conduct.
+- [Responsible Lending](https://www.kreditbee.in/responsible-lending): Responsible lending statement.
+- [Terms and Conditions](https://www.kreditbee.in/terms-and-conditions): Terms of service.
+- [Privacy Policy](https://www.kreditbee.in/privacy-policy): Privacy policy.
+- [Sign In](https://www.kreditbee.in/signin): Customer sign in.
+
+## Apps
+
+- [iOS App](https://apps.apple.com/in/app/kreditbee-personal-loans-upi/id1488736283): KreditBee: Personal Loans, UPI.
+- [Android App](https://play.google.com/store/apps/details?id=com.kreditbee.android): com.kreditbee.android (India-only listing).
+
+## Machine-readable surface actually found
+
+- [robots.txt](https://www.kreditbee.in/robots.txt): Real text/plain document, 23 Disallow rules and a Sitemap directive.
+- [sitemap.xml](https://www.kreditbee.in/sitemap.xml): 741 URLs; no developer, API or documentation page among them.
+- [GitHub organization](https://github.com/krazybee): KrazyBee — 9 public repositories, all forks of third-party open source, no first-party API artifact.
+
+## API Evangelist profile
+
+- [apis.yml](https://raw.githubusercontent.com/api-evangelist/kreditbee/refs/heads/main/apis.yml): The APIs.json profile for KreditBee.
+- [Well-known probe](https://raw.githubusercontent.com/api-evangelist/kreditbee/refs/heads/main/well-known/kreditbee-well-known.yml): Every /.well-known path probed, with status and why each 200 was rejected.
+- [Conformance](https://raw.githubusercontent.com/api-evangelist/kreditbee/refs/heads/main/conformance/kreditbee-conformance.yml): Standards evidenced and not evidenced.
+- [Domain security](https://raw.githubusercontent.com/api-evangelist/kreditbee/refs/heads/main/security/kreditbee-domain-security.yml): TLS, HSTS, DNSSEC, CAA, SPF and DMARC posture.
+
+---
+generated: '2026-08-04'
+method: generated
+source: apis.yml + live probes of kreditbee.in, api.kreditbee.in and krazybee.com
