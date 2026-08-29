@@ -15,6 +15,17 @@ description: 'KreditBee is a Bengaluru, India digital lending platform founded i
   and exists to serve the company''s own mobile and web clients. Partner and lending-partner
   integrations are transacted through the /partner-with-us and /digital-lending-partners
   business pages rather than through any self-serve technical surface.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://kb-serve-img.gumlet.io/krazybee/kreditbee_in/favicon_trhujWFuC.png
 url: https://raw.githubusercontent.com/api-evangelist/kreditbee/refs/heads/main/apis.yml
 x-type: company
