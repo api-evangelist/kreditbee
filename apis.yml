@@ -47,7 +47,7 @@ created: '2026-08-04'
 modified: '2026-08-04'
 tags:
 - Company
-- Financial-Services
+- Financial Services
 - Fintech
 - Lending
 - Digital Lending
@@ -69,6 +69,7 @@ tags_raw:
 - Credit Score
 - India
 - Mobile
+- Financial-Services
 apis: []
 maintainers:
 - FN: Kin Lane
